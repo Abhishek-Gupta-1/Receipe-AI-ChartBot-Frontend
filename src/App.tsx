@@ -3,20 +3,20 @@ import "./App.css"
 
 function App() {
   const [input, setInput] = useState('')
-  const [messages, setMessages] = useState([])
+  const [messages, setMessages] = useState<{ text: string; isUser: boolean }[]>([])
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (!input.trim()) return
     setMessages([...messages, { text: input, isUser: true }])
     setInput('')
   }
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value.split(' ').slice(0, 25).join(' ') + (e.target.value.split(' ').length > 25 ? '...' : ''))
   }
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       e.preventDefault()
       handleSubmit(e)
@@ -70,6 +70,7 @@ function App() {
         ))}
       </div>
     </div>
+
   )
 }
 
