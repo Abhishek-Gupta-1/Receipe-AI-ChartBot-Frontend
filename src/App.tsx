@@ -16,12 +16,12 @@ function App() {
     setInput(e.target.value.split(' ').slice(0, 25).join(' ') + (e.target.value.split(' ').length > 25 ? '...' : ''))
   }
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      e.preventDefault()
-      handleSubmit(e)
-    }
-  }
+  // const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  //   if (e.key === 'Enter') {
+  //     e.preventDefault()
+  //     handleSubmit(e)
+  //   }
+  // }
 
   return (
     <div className="homeback">
@@ -37,7 +37,7 @@ function App() {
               placeholder="write Food Name for recipe or the ingredients you have to get the recipe......"
               value={input}
               onChange={handleChange}
-              onKeyDown={handleKeyDown}
+
               maxLength={120}
             />
             <button
